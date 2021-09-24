@@ -44,11 +44,121 @@ hooks.add("install_plugins", function(use)
          require "custom.plugins.tmux"
       end,
    }
+
+   use "matze/vim-move"
+
+   use {
+      "blackCauldron7/surround.nvim",
+      config = function()
+         vim.g.surround_load_autogroups = false
+         vim.g.surround_mappings_style = "surround"
+         vim.g.surround_load_keymaps = true
+         require("surround").setup {}
+      end,
+   }
+
+   use {
+      "lukas-reineke/format.nvim",
+      config = function()
+         require "custom.plugins.format"
+      end,
+   }
+
+   use "tpope/vim-projectionist"
+
+   use "vim-test/vim-test"
+
+   use "preservim/vimux"
+
+   use {
+      "kdheepak/lazygit.nvim",
+      requires = "plenary.nvim",
+      cmd = { "LazyGit", "LazyGitConfig" },
+   }
+
+   use {
+      "francoiscabrol/ranger.vim",
+      requires = "rbgrouleff/bclose.vim",
+   }
+
+   use "tversteeg/registers.nvim"
+
+   use "glepnir/galaxyline.nvim"
+
+   use "Avimitin/nerd-galaxyline"
+
+   use {
+      "phaazon/hop.nvim",
+      config = function()
+         require("hop").setup()
+      end,
+   }
+
+   use {
+      "romgrk/nvim-treesitter-context",
+      after = "nvim-treesitter",
+      config = function()
+         require("treesitter-context").setup {
+            enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+            throttle = true, -- Throttles plugin updates (may improve performance)
+         }
+      end,
+   }
 end)
 
+-- options
 local opt = vim.opt
 
 opt.smartcase = true
+
+-- global variables
+local g = vim.g
+
+g.projectionist_heuristics = {
+   ["*.rb"] = {
+      ["lib/*.rb"] = {
+         ["alternate"] = "spec/lib/{}_spec.rb",
+         ["type"] = "source",
+      },
+      ["app/*.rb"] = {
+         ["alternate"] = "spec/{}_spec.rb",
+         ["type"] = "source",
+      },
+      ["spec/*_spec.rb"] = {
+         ["alternate"] = { "{}.rb", "app/{}.rb" },
+         ["type"] = "spec",
+      },
+   },
+   ["*.js"] = {
+      ["*.spec.js"] = {
+         ["alternate"] = "{dirname}/../{basename}.js",
+         ["type"] = "spec",
+      },
+      ["*.js"] = {
+         ["alternate"] = "{dirname}/__tests__/{basename}.spec.js",
+         ["type"] = "source",
+      },
+   },
+}
+
+-- vim-test
+g["test#strategy"] = "vimux"
+g["test#preserve_screen"] = 1
+g["test#javascript#runner"] = "jest"
+g["test#javascript#jest#executable"] = "yarn test --watchAll=false"
+
+-- ranger
+g.ranger_map_keys = 0
+
+-- autocmds
+vim.cmd "iabbrev JIRA https://employmenthero.atlassian.net/browse/<c-o>:call getchar()<CR>"
+
+vim.cmd [[
+  augroup Format
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+  augroup END
+  ]]
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
 -- then source it with
