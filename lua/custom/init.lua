@@ -38,6 +38,13 @@ hooks.add("install_plugins", function(use)
          require("which-key").setup()
       end,
    }
+
+   use {
+      "aserowy/tmux.nvim",
+      config = function()
+         require "custom.plugins.tmux"
+      end,
+   }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
