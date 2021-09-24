@@ -234,6 +234,7 @@ M.plugins = {
    --              use "custom.blankline" to call a file
    default_plugin_config_replace = {
       nvim_autopairs = "custom.plugins.autopairs",
+      telescope = "custom.plugins.telescope",
    },
 }
 
