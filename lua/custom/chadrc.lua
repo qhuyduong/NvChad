@@ -124,8 +124,8 @@ M.mappings.plugins = {
    },
    -- search your commands/keymappings
    cheatsheet = {
-      default_keys = "<leader>dk",
-      user_keys = "<leader>uk",
+      default_keys = "<leader>hK",
+      user_keys = "<leader>hk",
    },
    -- easily (un)comment code, language aware
    comment = {
@@ -154,15 +154,15 @@ M.mappings.plugins = {
    },
    -- multitool for finding & picking things
    telescope = {
-      buffers = "<leader>fb",
+      buffers = "<leader>bb",
       find_files = "<leader>ff",
       find_hiddenfiles = "<leader>fa",
       git_commits = "<leader>cm",
-      git_status = "<leader>gt",
-      help_tags = "<leader>fh",
-      live_grep = "<leader>fw",
-      oldfiles = "<leader>fo",
-      themes = "<leader>th", -- NvChad theme picker
+      git_status = "<leader>gs",
+      help_tags = "<leader>hh",
+      live_grep = "<leader>/",
+      oldfiles = "<leader>fr",
+      themes = "<leader>ht", -- NvChad theme picker
       -- media previews within telescope finders
       telescope_media = {
          media_files = "<leader>fp",
@@ -192,7 +192,7 @@ M.plugins = {
       bufferline = true, -- list open buffers up the top, easy switching too
       cheatsheet = true, -- search your commands/keymappings
       colorizer = true, -- color RGB, HEX, CSS, NAME color codes
-      comment = false, -- easily (un)comment code, language aware
+      comment = true, -- easily (un)comment code, language aware
       dashboard = false, -- NeoVim 'home screen' on open
       esc_insertmode = true, -- map to <ESC> with no lag
       feline = false, -- statusline
