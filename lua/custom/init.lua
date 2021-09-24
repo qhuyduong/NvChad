@@ -47,6 +47,10 @@ hooks.add("install_plugins", function(use)
    }
 end)
 
+local opt = vim.opt
+
+opt.smartcase = true
+
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
 -- then source it with
 

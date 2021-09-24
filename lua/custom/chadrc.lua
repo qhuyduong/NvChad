@@ -145,7 +145,7 @@ M.mappings.plugins = {
    },
    -- file explorer/tree
    nvimtree = {
-      toggle = "<C-n>",
+      toggle = "<leader>ot",
       focus = "<leader>e",
    },
    -- universal code formatter
