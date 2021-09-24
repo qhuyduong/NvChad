@@ -101,7 +101,7 @@ M.mappings = {
    terminal = {
       -- multiple mappings can be given for esc_termmode and esc_hide_termmode
       -- get out of terminal mode
-      esc_termmode = { "<Esc>" }, -- multiple mappings allowed
+      esc_termmode = { "JK" }, -- multiple mappings allowed
       -- get out of terminal mode and hide it
       esc_hide_termmode = { "JK" }, -- multiple mappings allowed
       -- show & recover hidden terminal buffers in a telescope picker
