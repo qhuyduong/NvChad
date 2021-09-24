@@ -203,7 +203,7 @@ M.plugins = {
       telescope_media = false, -- media previews within telescope finders
       truezen = false, -- distraction free & minimalist UI mode
       vim_fugitive = false, -- git integration & tooling
-      vim_matchup = true, -- % operator enhancements
+      vim_matchup = false, -- % operator enhancements
    },
    options = {
       lspconfig = {
