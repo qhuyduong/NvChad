@@ -202,7 +202,7 @@ M.plugins = {
       neoscroll = true, -- smooth scroll
       telescope_media = false, -- media previews within telescope finders
       truezen = false, -- distraction free & minimalist UI mode
-      vim_fugitive = false, -- git integration & tooling
+      vim_fugitive = true, -- git integration & tooling
       vim_matchup = false, -- % operator enhancements
    },
    options = {
