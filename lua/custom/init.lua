@@ -91,8 +91,6 @@ hooks.add("install_plugins", function(use)
       end,
    }
 
-   use "matze/vim-move"
-
    use {
       "blackCauldron7/surround.nvim",
       config = function()
