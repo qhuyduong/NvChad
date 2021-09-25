@@ -207,7 +207,7 @@ M.plugins = {
    },
    options = {
       lspconfig = {
-         servers = { "solargraph", "tsserver" }, -- eg: "HTML"
+         servers = { "diagnosticls", "solargraph", "tsserver" }, -- eg: "HTML"
       },
       statusline = { -- statusline related options
          -- these are filetypes, not pattern matched
@@ -235,6 +235,7 @@ M.plugins = {
    default_plugin_config_replace = {
       nvim_autopairs = "custom.plugins.autopairs",
       telescope = "custom.plugins.telescope",
+      lspconfig = "custom.plugins.lspconfig",
    },
 }
 
