@@ -150,6 +150,14 @@ hooks.add("install_plugins", function(use)
    }
 
    use "knsh14/vim-github-link"
+
+   use {
+      "windwp/nvim-ts-autotag",
+      after = "nvim-treesitter",
+      config = function()
+         require("nvim-ts-autotag").setup()
+      end,
+   }
 end)
 
 -- options
