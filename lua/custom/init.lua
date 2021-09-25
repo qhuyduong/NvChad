@@ -63,6 +63,12 @@ hooks.add("setup_mappings", function(map)
    map("n", "s", "<cmd>HopChar2AC<CR>")
    map("n", "gk", "<cmd>HopLineBC<CR>")
    map("n", "gj", "<cmd>HopLineAC<CR>")
+
+   -- Copy relative file path to clipboard
+   map("n", "<leader>fy", ':let @+=expand("%")<CR>')
+
+   -- Copy github link to clipboard
+   map("n", "<leader>gy", "<cmd>GetCommitLink<CR>")
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -144,6 +150,8 @@ hooks.add("install_plugins", function(use)
          }
       end,
    }
+
+   use "knsh14/vim-github-link"
 end)
 
 -- options
