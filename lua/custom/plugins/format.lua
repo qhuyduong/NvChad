@@ -35,7 +35,7 @@ format.setup {
    },
    javascript = {
       {
-         cmd = { "prettier -w" },
+         cmd = { "prettier -w", "./node_modules/.bin/prettier -w" },
       },
    },
    html = {
