@@ -22,7 +22,8 @@ local hooks = require "core.hooks"
 -- example below:
 
 hooks.add("setup_mappings", function(map)
-   map("n", "<leader>*", "<cmd>Telescope grep_string<CR>")
+   -- Visual selection
+   map("v", "*", "y/\\V<C-r>=escape(@\",'/\\')<CR><CR>")
 
    -- Projectionist
    map("n", "<leader>a", "<cmd>A<CR>")
@@ -35,6 +36,7 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>tv", "<cmd>TestVisit<CR>")
 
    -- Telescope
+   map("n", "<leader>*", "<cmd>Telescope grep_string<CR>")
    map(
       "v",
       "<leader>*",
