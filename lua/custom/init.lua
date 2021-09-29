@@ -55,6 +55,7 @@ hooks.add("setup_mappings", function(map)
    -- Fugitive
    map("n", "<leader>gl", "<cmd>Git log -10 -- %<CR>")
    map("n", "<leader>gb", "<cmd>Git blame<CR>")
+   map("n", "<leader>gt", "<cmd>%Gclog<CR>")
 
    -- Windows
    map("n", "<leader>ws", "<cmd>split<CR>")
@@ -227,10 +228,17 @@ vim.cmd "iabbrev JIRA https://employmenthero.atlassian.net/browse/<c-o>:call get
 
 vim.cmd [[
   augroup Format
-  autocmd!
-  autocmd BufWritePost * FormatWrite
+    autocmd!
+    autocmd BufWritePost * FormatWrite
   augroup END
-  ]]
+]]
+
+vim.cmd [[
+  augroup Fugitive
+    autocmd!
+    autocmd BufEnter fugitive://* nnoremap <buffer> <C-n> :cnext<CR> | nnoremap <buffer> <C-p> :cprevious<CR>
+  augroup END
+]]
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
 -- then source it with
