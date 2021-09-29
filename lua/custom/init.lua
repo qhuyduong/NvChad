@@ -131,7 +131,7 @@ hooks.add("install_plugins", function(use)
 
    use "glepnir/galaxyline.nvim"
 
-   use "Avimitin/nerd-galaxyline"
+   use { "Avimitin/nerd-galaxyline", commit = "f2a29784520c6ed55297f90a1a258c7076050ed4" }
 
    use {
       "phaazon/hop.nvim",
