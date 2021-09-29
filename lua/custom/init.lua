@@ -174,6 +174,8 @@ hooks.add("install_plugins", function(use)
          "Gwrite",
       },
    }
+
+   use { "kana/vim-textobj-entire", requires = "kana/vim-textobj-user" }
 end)
 
 -- options
