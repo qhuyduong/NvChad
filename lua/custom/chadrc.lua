@@ -174,13 +174,6 @@ M.mappings.plugins = {
       focus_mode = "<leader>zf",
       minimalistic_mode = "<leader>zm", -- as it is
    },
-   -- git integration & tooling
-   vim_fugitive = {
-      diff_get_2 = "<leader>gH",
-      diff_get_3 = "<leader>gL",
-      git = "<leader>gs",
-      git_blame = "<leader>gb",
-   },
 }
 
 -- NvChad included plugin options & overrides
@@ -202,7 +195,6 @@ M.plugins = {
       neoscroll = true, -- smooth scroll
       telescope_media = false, -- media previews within telescope finders
       truezen = false, -- distraction free & minimalist UI mode
-      vim_fugitive = true, -- git integration & tooling
       vim_matchup = false, -- % operator enhancements
    },
    options = {

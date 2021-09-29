@@ -54,6 +54,7 @@ hooks.add("setup_mappings", function(map)
 
    -- Fugitive
    map("n", "<leader>gl", "<cmd>Git log -10 -- %<CR>")
+   map("n", "<leader>gb", "<cmd>Git blame<CR>")
 
    -- Windows
    map("n", "<leader>ws", "<cmd>split<CR>")
@@ -159,6 +160,19 @@ hooks.add("install_plugins", function(use)
       config = function()
          require("nvim-ts-autotag").setup()
       end,
+   }
+
+   use {
+      "tpope/vim-fugitive",
+      cmd = {
+         "Gclog",
+         "Gdiff",
+         "Gdiffsplit",
+         "Git",
+         "Gvdiffsplit",
+         "Gw",
+         "Gwrite",
+      },
    }
 end)
 
