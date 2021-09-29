@@ -158,7 +158,7 @@ M.telescope = function()
 
    map("n", m.buffers, ":Telescope buffers <CR>")
    map("n", m.find_files, ":Telescope find_files <CR>")
-   map("n", m.find_hiddenfiles, ":Telescope find_files hidden=true <CR>")
+   map("n", m.find_hiddenfiles, ":Telescope find_files hidden=true no_ignore=true <CR>")
    map("n", m.git_commits, ":Telescope git_commits <CR>")
    map("n", m.git_status, ":Telescope git_status <CR>")
    map("n", m.help_tags, ":Telescope help_tags <CR>")
