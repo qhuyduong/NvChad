@@ -3,19 +3,71 @@ local M = {}
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
 
-   -- lspservers with default config
-   local servers = { "diagnosticls", "solargraph", "tsserver" }
+   -- solargraph
+   lspconfig.solargraph.setup {
+      on_attach = attach,
+      capabilities = capabilities,
+      flags = {
+         debounce_text_changes = 150,
+      },
+   }
 
-   for _, lsp in ipairs(servers) do
-      lspconfig[lsp].setup {
-         on_attach = attach,
-         capabilities = capabilities,
-         -- root_dir = vim.loop.cwd,
-         flags = {
-            debounce_text_changes = 150,
+   -- tsserver
+   lspconfig.tsserver.setup {
+      on_attach = attach,
+      capabilities = capabilities,
+      flags = {
+         debounce_text_changes = 150,
+      },
+      handlers = {
+         ["textDocument/publishDiagnostics"] = function() end,
+      },
+   }
+
+   -- diagnosticls
+   lspconfig.diagnosticls.setup {
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css" },
+      init_options = {
+         filetypes = {
+            javascript = "eslint",
+            typescript = "eslint",
+            javascriptreact = "eslint",
+            typescriptreact = "eslint",
          },
-      }
-   end
+         linters = {
+            eslint = {
+               sourceName = "eslint",
+               command = "./node_modules/.bin/eslint",
+               rootPatterns = {
+                  ".eslitrc.js",
+                  "package.json",
+               },
+               debounce = 100,
+               args = {
+                  "--cache",
+                  "--stdin",
+                  "--stdin-filename",
+                  "%filepath",
+                  "--format",
+                  "json",
+               },
+               parseJson = {
+                  errorsRoot = "[0].messages",
+                  line = "line",
+                  column = "column",
+                  endLine = "endLine",
+                  endColumn = "endColumn",
+                  message = "${message} [${ruleId}]",
+                  security = "severity",
+               },
+               securities = {
+                  [2] = "error",
+                  [1] = "warning",
+               },
+            },
+         },
+      },
+   }
 end
 
 return M
