@@ -4,21 +4,6 @@
 local M = {}
 M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 
--- NOTE: To use this, make a copy with `cp example_chadrc.lua chadrc.lua`
-
---------------------------------------------------------------------
-
--- To use this file, copy the strucutre of `core/default_config.lua`,
--- examples of setting relative number & changing theme:
-
--- M.options = {
---    relativenumber = true,
--- }
-
--- M.ui = {
---   theme = "nord"
--- }
-
 -- non plugin normal, available without any plugins
 M.options = {
    -- NeoVim/Vim options
@@ -67,6 +52,60 @@ M.ui = {
    -- Enable this only if your terminal has the colorscheme set which nvchad uses
    -- For Ex : if you have onedark set in nvchad, set onedark's bg color on your terminal
    transparency = false,
+}
+
+-- these are plugin related options
+M.plugins = {
+   -- enable and disable plugins (false for disable)
+   status = {
+      autosave = false, -- to autosave files
+      blankline = false, -- show code scope with symbols
+      bufferline = true, -- list open buffers up the top, easy switching too
+      colorizer = true, -- color RGB, HEX, CSS, NAME color codes
+      comment = true, -- easily (un)comment code, language aware
+      dashboard = false, -- NeoVim 'home screen' on open
+      esc_insertmode = true, -- map to <ESC> with no lag
+      feline = false, -- statusline
+      gitsigns = true, -- gitsigns in statusline
+      lspsignature = true, -- lsp enhancements
+      neoscroll = true, -- smooth scroll
+      telescope_media = false, -- media previews within telescope finders
+      truezen = false, -- distraction free & minimalist UI mode
+      vim_matchup = false, -- % operator enhancements
+      cmp = true,
+   },
+   options = {
+      lspconfig = {
+         setup_lspconf = "", -- path of file containing setups of different lsps
+      },
+      nvimtree = {
+         enable_git = 0,
+      },
+      luasnip = {
+         snippet_path = {},
+      },
+      statusline = { -- statusline related options
+         -- these are filetypes, not pattern matched
+         -- shown filetypes will overrule hidden filetypes
+         hidden = {
+            "help",
+            "dashboard",
+            "NvimTree",
+            "terminal",
+         },
+         shown = {},
+         -- default, round , slant , block , arrow
+         style = "default",
+      },
+      autosave = false, -- autosave on changed text or insert mode leave
+      -- timeout to be used for using escape with a key combination, see mappings.plugins.better_escape
+      esc_insertmode_timeout = 300,
+   },
+   default_plugin_config_replace = {
+      nvim_autopairs = "custom.plugins.autopairs",
+      telescope = "custom.plugins.telescope",
+      lspconfig = "custom.plugins.lspconfig",
+   },
 }
 
 -- mappings -- don't use a single keymap twice --
@@ -122,11 +161,6 @@ M.mappings.plugins = {
       next_buffer = "<TAB>", -- next buffer
       prev_buffer = "<S-Tab>", -- previous buffer
    },
-   -- search your commands/keymappings
-   cheatsheet = {
-      default_keys = "<leader>hK",
-      user_keys = "<leader>hk",
-   },
    -- easily (un)comment code, language aware
    comment = {
       toggle = "gc", -- toggle comment (works on multiple lines)
@@ -147,10 +181,6 @@ M.mappings.plugins = {
    nvimtree = {
       toggle = "<leader>ot",
       focus = "<leader>e",
-   },
-   -- universal code formatter
-   neoformat = {
-      format = "<leader>fm",
    },
    -- multitool for finding & picking things
    telescope = {
@@ -173,61 +203,6 @@ M.mappings.plugins = {
       ataraxis_mode = "<leader>zz", -- center
       focus_mode = "<leader>zf",
       minimalistic_mode = "<leader>zm", -- as it is
-   },
-}
-
--- NvChad included plugin options & overrides
-M.plugins = {
-   -- enable and disable plugins (false for disable)
-   plugin_status = {
-      autosave = false, -- to autosave files
-      blankline = false, -- show code scope with symbols
-      bufferline = true, -- list open buffers up the top, easy switching too
-      cheatsheet = true, -- search your commands/keymappings
-      colorizer = true, -- color RGB, HEX, CSS, NAME color codes
-      comment = true, -- easily (un)comment code, language aware
-      dashboard = false, -- NeoVim 'home screen' on open
-      esc_insertmode = true, -- map to <ESC> with no lag
-      feline = false, -- statusline
-      gitsigns = true, -- gitsigns in statusline
-      lspsignature = true, -- lsp enhancements
-      neoformat = false, -- universal code formatter
-      neoscroll = true, -- smooth scroll
-      telescope_media = false, -- media previews within telescope finders
-      truezen = false, -- distraction free & minimalist UI mode
-      vim_matchup = false, -- % operator enhancements
-   },
-   options = {
-      lspconfig = {
-         servers = { "diagnosticls", "solargraph", "tsserver" }, -- eg: "HTML"
-      },
-      statusline = { -- statusline related options
-         -- these are filetypes, not pattern matched
-         -- shown filetypes will overrule hidden filetypes
-         hidden = {
-            "help",
-            "dashboard",
-            "NvimTree",
-            "terminal",
-         },
-         shown = {},
-         -- default, round , slant , block , arrow
-         style = "default",
-      },
-      autosave = false, -- autosave on changed text or insert mode leave
-      -- timeout to be used for using escape with a key combination, see mappings.plugin.better_escape
-      esc_insertmode_timeout = 300,
-   },
-   -- To change the Packer `config` of a plugin that comes with NvChad,
-   -- add a table entry below matching the plugin github name
-   --              '-' -> '_', remove any '.lua', '.nvim' extensions
-   -- this string will be called in a `require`
-   --              use "(custom.configs).my_func()" to call a function
-   --              use "custom.blankline" to call a file
-   default_plugin_config_replace = {
-      nvim_autopairs = "custom.plugins.autopairs",
-      telescope = "custom.plugins.telescope",
-      lspconfig = "custom.plugins.lspconfig",
    },
 }
 
