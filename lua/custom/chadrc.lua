@@ -103,7 +103,6 @@ M.plugins = {
    },
    default_plugin_config_replace = {
       nvim_autopairs = "custom.plugins.autopairs",
-      telescope = "custom.plugins.telescope",
    },
 }
 
