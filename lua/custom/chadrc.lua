@@ -112,7 +112,7 @@ M.mappings = {
    -- custom = {}, -- all custom user mappings
    -- close current focused buffer
    close_buffer = "<leader>x",
-   copy_whole_file = "<C-a>", -- copy all contents of the current buffer
+   copy_whole_file = "yig", -- copy all contents of the current buffer
    line_number_toggle = "<leader>n", -- show or hide line number
    new_buffer = "<S-t>", -- open a new buffer
    new_tab = "<C-t>b", -- open a new vim tab

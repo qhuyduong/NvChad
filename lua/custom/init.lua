@@ -114,9 +114,7 @@ hooks.add("install_plugins", function(use)
 
    use "tpope/vim-projectionist"
 
-   use "vim-test/vim-test"
-
-   use "preservim/vimux"
+   use { "vim-test/vim-test", requires = "preservim/vimux" }
 
    use {
       "kdheepak/lazygit.nvim",
@@ -131,9 +129,11 @@ hooks.add("install_plugins", function(use)
 
    use "tversteeg/registers.nvim"
 
-   use "glepnir/galaxyline.nvim"
-
-   use { "Avimitin/nerd-galaxyline", commit = "f2a29784520c6ed55297f90a1a258c7076050ed4" }
+   use {
+      "Avimitin/nerd-galaxyline",
+      commit = "f2a29784520c6ed55297f90a1a258c7076050ed4",
+      requires = "glepnir/galaxyline.nvim",
+   }
 
    use {
       "phaazon/hop.nvim",
@@ -175,8 +175,6 @@ hooks.add("install_plugins", function(use)
          "Gwrite",
       },
    }
-
-   use { "kana/vim-textobj-entire", requires = "kana/vim-textobj-user" }
 end)
 
 -- options
