@@ -57,7 +57,7 @@ M.ui = {
 -- these are plugin related options
 M.plugins = {
    -- enable and disable plugins (false for disable)
-   plugin_status = {
+      status = {
       autosave = false, -- to autosave files
       blankline = true, -- show code scope with symbols
       bufferline = true, -- list open buffers up the top, easy switching too
@@ -68,7 +68,6 @@ M.plugins = {
       feline = true, -- statusline
       gitsigns = true, -- gitsigns in statusline
       lspsignature = true, -- lsp enhancements
-      neoformat = true, -- universal code formatter
       neoscroll = false, -- smooth scroll
       telescope_media = false, -- media previews within telescope finders
       truezen = false, -- distraction free & minimalist UI mode
@@ -77,7 +76,7 @@ M.plugins = {
    },
    options = {
       lspconfig = {
-         servers = {}, -- eg: "html"
+         setup_lspconf = "", -- path of file containing setups of different lsps
       },
       nvimtree = {
          enable_git = 0,
@@ -178,10 +177,6 @@ M.mappings.plugins = {
    nvimtree = {
       toggle = "<C-n>",
       focus = "<leader>e",
-   },
-   -- universal code formatter
-   neoformat = {
-      format = "<leader>fm",
    },
    -- multitool for finding & picking things
    telescope = {
