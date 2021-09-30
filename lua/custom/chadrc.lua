@@ -76,7 +76,7 @@ M.plugins = {
    },
    options = {
       lspconfig = {
-         setup_lspconf = "", -- path of file containing setups of different lsps
+         setup_lspconf = "custom.plugins.lspconfig", -- path of file containing setups of different lsps
       },
       nvimtree = {
          enable_git = 0,
@@ -104,7 +104,6 @@ M.plugins = {
    default_plugin_config_replace = {
       nvim_autopairs = "custom.plugins.autopairs",
       telescope = "custom.plugins.telescope",
-      lspconfig = "custom.plugins.lspconfig",
    },
 }
 
