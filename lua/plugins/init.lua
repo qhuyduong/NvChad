@@ -111,17 +111,6 @@ return packer.startup(function()
       end,
    }
 
-   -- smooth scroll
-   use {
-      "karb94/neoscroll.nvim",
-      disable = not status.neoscroll,
-      opt = true,
-      config = override_req("neoscroll", "(plugins.configs.others).neoscroll()"),
-      setup = function()
-         require("core.utils").packer_lazy_load "neoscroll.nvim"
-      end,
-   }
-
    -- lsp stuff
 
    use {
@@ -131,7 +120,7 @@ return packer.startup(function()
          require("core.utils").packer_lazy_load "nvim-lspconfig"
          -- reload the current file so lsp actually starts for it
          vim.defer_fn(function()
-            vim.cmd "silent! e %"
+            vim.cmd 'if &ft == "packer" | echo "" | else | silent! e %'
          end, 0)
       end,
       config = override_req("lspconfig", "plugins.configs.lspconfig"),
@@ -153,16 +142,6 @@ return packer.startup(function()
       end,
    }
 
-   -- load autosave only if its globally enabled
-   use {
-      disable = not status.autosave,
-      "Pocco81/AutoSave.nvim",
-      config = override_req("autosave", "(plugins.configs.others).autosave()"),
-      cond = function()
-         return require("core.utils").load_config().plugins.options.autosave == true
-      end,
-   }
-
    use {
       "max397574/better-escape.nvim",
       disable = not status.esc_insertmode,
@@ -180,6 +159,7 @@ return packer.startup(function()
 
    use {
       "hrsh7th/nvim-cmp",
+      module = "cmp",
       disable = not status.cmp,
       after = "friendly-snippets",
       config = override_req("nvim_cmp", "plugins.configs.cmp"),
@@ -208,7 +188,8 @@ return packer.startup(function()
    use {
       "hrsh7th/cmp-nvim-lsp",
       disable = not status.cmp,
-      after = "cmp-nvim-lua",
+      module = "cmp_nvim_lsp",
+      after = "nvim-lspconfig",
    }
 
    use {
@@ -280,20 +261,6 @@ return packer.startup(function()
       config = override_req("telescope", "plugins.configs.telescope"),
       setup = function()
          require("core.mappings").telescope()
-      end,
-   }
-
-   use {
-      "Pocco81/TrueZen.nvim",
-      disable = not status.truezen,
-      cmd = {
-         "TZAtaraxis",
-         "TZMinimalist",
-         "TZFocus",
-      },
-      config = override_req("truezen", "plugins.configs.zenmode"),
-      setup = function()
-         require("core.mappings").truezen()
       end,
    }
 
