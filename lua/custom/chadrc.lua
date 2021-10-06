@@ -59,7 +59,7 @@ M.plugins = {
    -- enable and disable plugins (false for disable)
    status = {
       autosave = false, -- to autosave files
-      blankline = false, -- show code scope with symbols
+      blankline = true, -- show code scope with symbols
       bufferline = true, -- list open buffers up the top, easy switching too
       colorizer = true, -- color RGB, HEX, CSS, NAME color codes
       comment = true, -- easily (un)comment code, language aware
