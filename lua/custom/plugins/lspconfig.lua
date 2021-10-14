@@ -68,6 +68,18 @@ M.setup_lsp = function(attach, capabilities)
          },
       },
    }
+
+   -- jdtls
+   lspconfig.jdtls.setup {
+      on_attach = attach,
+      capabilities = capabilities,
+      flags = {
+         debounce_text_changes = 150,
+      },
+      handlers = {
+         ["textDocument/publishDiagnostics"] = function() end,
+      },
+   }
 end
 
 return M
