@@ -175,6 +175,8 @@ hooks.add("install_plugins", function(use)
          "Gwrite",
       },
    }
+
+   use "kelwin/vim-smali"
 end)
 
 -- options
