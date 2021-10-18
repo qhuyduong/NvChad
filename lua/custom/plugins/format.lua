@@ -81,4 +81,9 @@ format.setup {
          cmd = { "rubocop --auto-correct" },
       },
    },
+   typescriptreact = {
+      {
+         cmd = { "prettier -w", "./node_modules/.bin/prettier -w" },
+      },
+   },
 }
