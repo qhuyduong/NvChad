@@ -179,11 +179,6 @@ hooks.add("install_plugins", function(use)
    use "kelwin/vim-smali"
 end)
 
--- options
-local opt = vim.opt
-
-opt.smartcase = true
-
 -- global variables
 local g = vim.g
 

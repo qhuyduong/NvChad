@@ -12,6 +12,7 @@ M.options = {
    ruler = false,
    hidden = true,
    ignorecase = true,
+   smartcase = true,
    mapleader = " ",
    mouse = "a",
    number = true,
@@ -58,7 +59,6 @@ M.ui = {
 M.plugins = {
    -- enable and disable plugins (false for disable)
    status = {
-      autosave = false, -- to autosave files
       blankline = true, -- show code scope with symbols
       bufferline = true, -- list open buffers up the top, easy switching too
       colorizer = true, -- color RGB, HEX, CSS, NAME color codes
@@ -68,11 +68,11 @@ M.plugins = {
       feline = false, -- statusline
       gitsigns = true, -- gitsigns in statusline
       lspsignature = true, -- lsp enhancements
-      neoscroll = true, -- smooth scroll
       telescope_media = false, -- media previews within telescope finders
-      truezen = false, -- distraction free & minimalist UI mode
       vim_matchup = false, -- % operator enhancements
       cmp = true,
+      nvimtree = true,
+      autopairs = true,
    },
    options = {
       lspconfig = {
@@ -93,12 +93,12 @@ M.plugins = {
             "NvimTree",
             "terminal",
          },
+         -- show short statusline on small screens
+         shortline = true,
          shown = {},
          -- default, round , slant , block , arrow
          style = "default",
       },
-      autosave = false, -- autosave on changed text or insert mode leave
-      -- timeout to be used for using escape with a key combination, see mappings.plugins.better_escape
       esc_insertmode_timeout = 300,
    },
    default_plugin_config_replace = {
@@ -125,7 +125,7 @@ M.mappings = {
       forward = "<C-l>",
       next_line = "<C-k>",
       prev_line = "<C-j>",
-      top_of_line = "<C-a>",
+      beginning_of_line = "<C-a>",
    },
    --better window movement
    window_nav = {
@@ -195,12 +195,6 @@ M.mappings.plugins = {
       telescope_media = {
          media_files = "<leader>fp",
       },
-   },
-   -- distraction free & minimalist UI mode
-   truezen = {
-      ataraxis_mode = "<leader>zz", -- center
-      focus_mode = "<leader>zf",
-      minimalistic_mode = "<leader>zm", -- as it is
    },
 }
 
