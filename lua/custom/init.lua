@@ -236,7 +236,8 @@ vim.cmd [[
 ]]
 
 vim.cmd [[
-  autocmd FileType c setlocal shiftwidth=8 tabstop=8 noexpandtab
+  autocmd FileType c,cpp setlocal shiftwidth=8 tabstop=8 noexpandtab
+  autocmd FileType java setlocal shiftwidth=4 tabstop=4 noexpandtab
 ]]
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
