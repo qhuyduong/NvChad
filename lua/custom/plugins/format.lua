@@ -86,4 +86,9 @@ format.setup {
          cmd = { "prettier -w", "./node_modules/.bin/prettier -w" },
       },
    },
+   java = {
+      {
+         cmd = { "google-java-format --aosp --replace" },
+      },
+   },
 }
