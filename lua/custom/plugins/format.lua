@@ -35,17 +35,17 @@ format.setup {
    },
    javascript = {
       {
-         cmd = { "prettier -w", "./node_modules/.bin/prettier -w" },
+         cmd = { "prettier --write", "./node_modules/.bin/prettier --write" },
       },
    },
    html = {
       {
-         cmd = { "prettier -w --parser html" },
+         cmd = { "prettier --write --parser html" },
       },
    },
    markdown = {
       {
-         cmd = { "prettier -w --parser markdown" },
+         cmd = { "prettier --write --parser markdown" },
       },
       {
          cmd = {
@@ -58,22 +58,22 @@ format.setup {
    },
    css = {
       {
-         cmd = { "prettier -w --parser css" },
+         cmd = { "prettier --write --parser css" },
       },
    },
    scss = {
       {
-         cmd = { "prettier -w --parser scss" },
+         cmd = { "prettier --write --parser scss" },
       },
    },
    json = {
       {
-         cmd = { "prettier -w --parser json" },
+         cmd = { "prettier --write --parser json" },
       },
    },
    yaml = {
       {
-         cmd = { "prettier -w --parser yaml" },
+         cmd = { "prettier --write --parser yaml" },
       },
    },
    ruby = {
@@ -83,7 +83,7 @@ format.setup {
    },
    typescriptreact = {
       {
-         cmd = { "prettier -w", "./node_modules/.bin/prettier -w" },
+         cmd = { "prettier --write", "./node_modules/.bin/prettier --write" },
       },
    },
    java = {
