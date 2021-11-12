@@ -177,6 +177,8 @@ hooks.add("install_plugins", function(use)
    }
 
    use "kelwin/vim-smali"
+
+   use "b3nj5m1n/kommentary"
 end)
 
 -- global variables
