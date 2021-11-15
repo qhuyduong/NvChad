@@ -76,9 +76,6 @@ M.setup_lsp = function(attach, capabilities)
       flags = {
          debounce_text_changes = 150,
       },
-      handlers = {
-         ["textDocument/publishDiagnostics"] = function() end,
-      },
    }
 end
 
