@@ -3,7 +3,6 @@ local M = {}
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
 
-   -- solargraph
    lspconfig.solargraph.setup {
       on_attach = attach,
       capabilities = capabilities,
@@ -12,7 +11,6 @@ M.setup_lsp = function(attach, capabilities)
       },
    }
 
-   -- tsserver
    lspconfig.tsserver.setup {
       on_attach = attach,
       capabilities = capabilities,
@@ -24,7 +22,6 @@ M.setup_lsp = function(attach, capabilities)
       },
    }
 
-   -- diagnosticls
    lspconfig.diagnosticls.setup {
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css" },
       init_options = {
@@ -69,8 +66,15 @@ M.setup_lsp = function(attach, capabilities)
       },
    }
 
-   -- jdtls
    lspconfig.jdtls.setup {
+      on_attach = attach,
+      capabilities = capabilities,
+      flags = {
+         debounce_text_changes = 150,
+      },
+   }
+
+   lspconfig.kotlin_language_server.setup {
       on_attach = attach,
       capabilities = capabilities,
       flags = {
