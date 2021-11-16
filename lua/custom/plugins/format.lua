@@ -91,4 +91,9 @@ format.setup {
          cmd = { "google-java-format --aosp --replace" },
       },
    },
+   kotlin = {
+      {
+         cmd = { "ktlint --format" },
+      },
+   },
 }
