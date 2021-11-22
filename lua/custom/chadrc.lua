@@ -7,7 +7,7 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 -- non plugin normal, available without any plugins
 M.options = {
    -- NeoVim/Vim options
-   clipboard = "unnamedplus",
+   clipboard = "unnamed",
    cmdheight = 1,
    ruler = false,
    hidden = true,
