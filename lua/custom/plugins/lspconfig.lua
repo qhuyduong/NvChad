@@ -73,14 +73,6 @@ M.setup_lsp = function(attach, capabilities)
          debounce_text_changes = 150,
       },
    }
-
-   lspconfig.kotlin_language_server.setup {
-      on_attach = attach,
-      capabilities = capabilities,
-      flags = {
-         debounce_text_changes = 150,
-      },
-   }
 end
 
 return M
