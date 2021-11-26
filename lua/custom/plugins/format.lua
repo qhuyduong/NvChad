@@ -27,7 +27,7 @@ format.setup {
    },
    javascript = {
       {
-         cmd = { "prettier --write", "./node_modules/.bin/prettier --write" },
+         cmd = { "./node_modules/.bin/prettier --write" },
       },
    },
    html = {
@@ -70,12 +70,12 @@ format.setup {
    },
    ruby = {
       {
-         cmd = { "rubocop --auto-correct" },
+         cmd = { "bundle exec rubocop --auto-correct" },
       },
    },
    typescriptreact = {
       {
-         cmd = { "prettier --write", "./node_modules/.bin/prettier --write" },
+         cmd = { "./node_modules/.bin/prettier --write" },
       },
    },
    java = {
