@@ -226,26 +226,24 @@ g["test#javascript#jest#executable"] = "yarn test --watchAll=false"
 g.ranger_map_keys = 0
 
 -- autocmds
-vim.cmd "iabbrev JIRA https://employmenthero.atlassian.net/browse/<c-o>:call getchar()<CR>"
-
 vim.cmd [[
-  augroup Format
-    autocmd!
-    autocmd BufWritePost * FormatWrite
-  augroup END
-]]
+iabbrev JIRA https://employmenthero.atlassian.net/browse/<c-o>:call getchar()<CR>
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
-vim.cmd [[
-  augroup Fugitive
-    autocmd!
-    autocmd BufEnter fugitive://* nnoremap <buffer> <C-n> :cnext<CR> | nnoremap <buffer> <C-p> :cprevious<CR>
-  augroup END
-]]
+augroup Format
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+augroup END
 
-vim.cmd [[
-  autocmd FileType c,cpp setlocal shiftwidth=8 tabstop=8 noexpandtab
-  autocmd FileType java setlocal shiftwidth=4 tabstop=4
-  autocmd FileType xml setlocal shiftwidth=4 tabstop=4
+augroup Fugitive
+  autocmd!
+  autocmd BufEnter fugitive://* nnoremap <buffer> <C-n> :cnext<CR> | nnoremap <buffer> <C-p> :cprevious<CR>
+augroup END
+
+autocmd FileType c,cpp setlocal shiftwidth=8 tabstop=8 noexpandtab
+autocmd FileType java setlocal shiftwidth=4 tabstop=4
+autocmd FileType xml setlocal shiftwidth=4 tabstop=4
 ]]
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"

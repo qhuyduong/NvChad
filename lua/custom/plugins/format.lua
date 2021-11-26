@@ -5,14 +5,6 @@ end
 
 local fmt = string.format
 format.setup {
-   ["*"] = {
-      -- remove trailing whitespaces
-      {
-         cmd = {
-            "sed -i 's/[ \t]*$//'",
-         },
-      },
-   },
    vim = {
       {
          cmd = {
