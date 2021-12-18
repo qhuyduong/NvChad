@@ -166,13 +166,6 @@ hooks.add("install_plugins", function(use)
    }
 
    use "kelwin/vim-smali"
-
-   use {
-      "numToStr/Comment.nvim",
-      config = function()
-         require("Comment").setup()
-      end,
-   }
 end)
 
 -- global variables
