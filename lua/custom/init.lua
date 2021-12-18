@@ -142,17 +142,6 @@ hooks.add("install_plugins", function(use)
       end,
    }
 
-   use {
-      "romgrk/nvim-treesitter-context",
-      after = "nvim-treesitter",
-      config = function()
-         require("treesitter-context").setup {
-            enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-            throttle = true, -- Throttles plugin updates (may improve performance)
-         }
-      end,
-   }
-
    use "knsh14/vim-github-link"
 
    use {
