@@ -68,7 +68,7 @@ return packer.startup(function()
 
    use {
       "nvim-treesitter/nvim-treesitter",
-      event = "BufRead",
+      event = "BufEnter",
       config = override_req("nvim_treesitter", "plugins.configs.treesitter"),
    }
 
