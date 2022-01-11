@@ -28,6 +28,9 @@ M.mappings = {
    misc = {
       copy_whole_file = "yig", -- copy all contents of current buffer
    },
+   terminal = {
+      esc_termmode = { "JK" },
+   },
 }
 
 M.mappings.plugins = {
