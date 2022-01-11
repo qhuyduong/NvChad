@@ -57,13 +57,6 @@ local customPlugins = require "core.customPlugins"
 
 customPlugins.add(function(use)
    use {
-      "folke/which-key.nvim",
-      config = function()
-         require("which-key").setup()
-      end,
-   }
-
-   use {
       "aserowy/tmux.nvim",
       config = function()
          require "custom.plugins.tmux"
