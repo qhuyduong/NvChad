@@ -11,6 +11,9 @@ M.ui = {
 }
 
 M.plugins = {
+   status = {
+      vim_matchup = false, -- improved matchit
+   },
    options = {
       lspconfig = {
          setup_lspconf = "custom.plugins.lspconfig", -- path of file containing setups of different lsps
