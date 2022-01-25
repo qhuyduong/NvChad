@@ -121,6 +121,14 @@ customPlugins.add(function(use)
    }
 
    use "kelwin/vim-smali"
+
+   use {
+      "jose-elias-alvarez/null-ls.nvim",
+      after = "nvim-lspconfig",
+      config = function()
+         require("custom.plugins.null-ls").setup()
+      end,
+   }
 end)
 
 -- global variables
