@@ -3,12 +3,13 @@ local b = null_ls.builtins
 
 local sources = {
    -- Formatting
-   b.formatting.stylua,
    b.formatting.prettier,
+   b.formatting.rubocop,
+   b.formatting.stylua,
 
    -- Diagnostics
-   b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
    b.diagnostics.eslint,
+   b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
 }
 
 local M = {}
