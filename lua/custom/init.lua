@@ -73,13 +73,6 @@ customPlugins.add(function(use)
       end,
    }
 
-   use {
-      "lukas-reineke/format.nvim",
-      config = function()
-         require "custom.plugins.format"
-      end,
-   }
-
    use "tpope/vim-projectionist"
 
    use { "vim-test/vim-test", requires = "preservim/vimux" }
@@ -174,11 +167,6 @@ vim.cmd [[
 iabbrev JIRA https://employmenthero.atlassian.net/browse/<c-o>:call getchar()<CR>
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
-augroup Format
-  autocmd!
-  autocmd BufWritePost * FormatWrite
-augroup END
 
 augroup Fugitive
   autocmd!
