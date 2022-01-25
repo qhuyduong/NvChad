@@ -217,6 +217,7 @@ return packer.startup(function()
    use {
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
+      commit = "2bfc0eb2cf12237eb0ac15498229341ededfaa0d",
       config = override_req("telescope", "plugins.configs.telescope"),
       setup = function()
          require("core.mappings").telescope()
