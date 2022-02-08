@@ -221,6 +221,7 @@ local plugins = {
       "nvim-telescope/telescope.nvim",
       module = "telescope",
       cmd = "Telescope",
+      commit = "2bfc0eb2cf12237eb0ac15498229341ededfaa0d",
       config = override_req("telescope", "plugins.configs.telescope", "setup"),
       setup = function()
          require("core.mappings").telescope()
