@@ -7,16 +7,19 @@ M.options = {
 
 M.ui = {
    italic_comments = true,
-   theme = "tokyonight", -- default theme
+   theme = "tokyonight",
 }
 
+local userPlugins = require "custom.plugins"
+
 M.plugins = {
+   install = userPlugins,
    status = {
-      vim_matchup = false, -- improved matchit
+      vim_matchup = false,
    },
    options = {
       lspconfig = {
-         setup_lspconf = "custom.plugins.lspconfig", -- path of file containing setups of different lsps
+         setup_lspconf = "custom.plugins.lspconfig",
       },
       statusline = {
          style = "round",
@@ -29,7 +32,7 @@ M.plugins = {
 
 M.mappings = {
    misc = {
-      copy_whole_file = "yig", -- copy all contents of current buffer
+      copy_whole_file = "yig",
    },
    terminal = {
       esc_termmode = { "JK" },
