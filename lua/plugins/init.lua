@@ -182,12 +182,9 @@ local plugins = {
    },
 
    {
-      "glepnir/dashboard-nvim",
-      disable = not plugin_settings.status.dashboard,
-      config = override_req("dashboard", "plugins.configs.dashboard"),
-      setup = function()
-         require("core.mappings").dashboard()
-      end,
+      disable = not plugin_settings.status.alpha,
+      "goolord/alpha-nvim",
+      config = override_req("alpha", "plugins.configs.alpha"),
    },
 
    {
@@ -225,18 +222,16 @@ local plugins = {
       end,
    },
 }
+
+--label plugins for operational assistance
+plugins = require("core.utils").label_plugins(plugins)
 --remove plugins specified in chadrc
 plugins = require("core.utils").remove_default_plugins(plugins)
+--add plugins specified in chadrc
+plugins = require("core.utils").add_user_plugins(plugins)
 
--- append user plugins to default plugins
-local user_Plugins = plugin_settings.install
-
-if type(user_Plugins) == "table" then
-   if table.maxn(user_Plugins) == 1 then
-      plugins[#plugins + 1] = user_Plugins[1]
-   else
-      plugins[#plugins + 1] = user_Plugins
+return packer.startup(function(use)
+   for _, v in pairs(plugins) do
+      use(v)
    end
-end
-
-return packer.startup { plugins }
+end)
