@@ -5,15 +5,7 @@ return {
          require "custom.plugins.tmux"
       end,
    },
-   {
-      "blackCauldron7/surround.nvim",
-      config = function()
-         vim.g.surround_load_autogroups = false
-         vim.g.surround_mappings_style = "surround"
-         vim.g.surround_load_keymaps = true
-         require("surround").setup {}
-      end,
-   },
+   { "tpope/vim-surround" },
    { "tpope/vim-projectionist" },
    { "vim-test/vim-test", requires = "preservim/vimux" },
    {
