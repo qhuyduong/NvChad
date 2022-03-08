@@ -15,6 +15,7 @@ local userPlugins = require "custom.plugins"
 M.plugins = {
    install = userPlugins,
    status = {
+      blankline = false,
       vim_matchup = false,
    },
    options = {
