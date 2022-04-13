@@ -52,4 +52,5 @@ return {
          require("custom.plugins.null-ls").setup()
       end,
    },
+   { "chrisbra/csv.vim" },
 }
