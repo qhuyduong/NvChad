@@ -9,7 +9,7 @@ return {
    { "tpope/vim-projectionist" },
    { "vim-test/vim-test", requires = "preservim/vimux" },
    {
-      "kdheepak/lazygit.nvim",
+      "qhuyduong/lazygit.nvim",
       requires = "plenary.nvim",
       cmd = { "LazyGit", "LazyGitConfig" },
    },
